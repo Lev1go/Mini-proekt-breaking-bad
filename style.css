@@ -37,6 +37,10 @@ img {
     --modal-bg: #005e00;
     --data: #978c8c;
     --footer-bg: #004700;
+    --filter-hover-bg: #009900;
+    --modal-border-1: #009900;
+    --modal-border-2: #00d400;
+    --modal-border-3: #00ff00;
 }
 
 header {
@@ -77,6 +81,12 @@ span {
     background-color: var(--span-bg);
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.header-item:hover {
+    transform: scale(1.10);
+    transition-duration: 2s;
+    border: solid var(--filter-hover-bg);
 }
 
 .hero-section {
@@ -122,7 +132,16 @@ span {
     background-color: var(--span-bg);
     padding-left: 15px;
     padding-right: 15px;
+}
 
+.is-active {
+    background-color: var(--filter-hover-bg);
+}
+
+.filter-item:hover {
+    background-color: var(--filter-hover-bg);
+    transition-duration: 1s;
+    transition-timing-function: linear;
 }
 
 .filter-link {
@@ -132,13 +151,37 @@ span {
 .mylist-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
-    gap:
+}
+
+.mylist-rating {
+    position: absolute;
+    color: rgb(228, 228, 36);
+    padding-left: 325px;
 }
 
 .mylist-item {
     border: 2px solid var(--span-border);
     margin: 20px;
     background-color: var(--card-bg);
+    animation: border 4s infinite;
+}
+
+@keyframes border {
+    0% {
+        border: 2px solid var(--span-border);
+    }
+    25% {
+        border: 2px solid var(--modal-border-1);
+    }
+    50% {
+        border: 2px solid var(--modal-border-2);
+    }
+    75% {
+        border: 2px solid var(--modal-border-3);
+    }
+    100% {
+        border: 2px solid var(--span-border);
+    }
 }
 
 .backdrop {
@@ -252,11 +295,26 @@ footer {
     background: var(--modal-bg);
     border: 1px solid var(--span-border);
     border-radius: 8px;
+    animation: scale 2s infinite;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .footer-contact-list {
     display: flex;
     gap: 20px;
 }
+
