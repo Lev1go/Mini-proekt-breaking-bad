@@ -18,8 +18,9 @@ a {
 }
 
 img {
-    height: 500px;
-    width: 460px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover
 }
 
 .no-scroll {
@@ -35,6 +36,7 @@ img {
     --card-bg: #004904;
     --modal-bg: #005e00;
     --data: #978c8c;
+    --footer-bg: #004700;
 }
 
 header {
@@ -55,7 +57,7 @@ header {
     padding-left: 20px;
 }
 
-.header-span {
+span {
     border: 1px solid var(--span-border);
     background-color: var(--span-bg);
     padding-left: 8px;
@@ -127,12 +129,10 @@ header {
     font-size: 20px;
 }
 
-.mylist-container {
-    display: flex;
-}
-
 .mylist-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+    gap:
 }
 
 .mylist-item {
@@ -145,10 +145,14 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 172, 14, 0.5);
     z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .backdrop.is-hidden {
@@ -168,7 +172,6 @@ header {
     background-color: var(--modal-bg);
     border-radius: 8px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-    color: var(--color);
 }
 
 .position {
@@ -196,4 +199,64 @@ header {
     border-radius: 100px;
     padding: 10px;
     background-color: var(--data);
+}
+
+.modal-text {
+    font-size: 30px;
+}
+
+.modal-title {
+    font-size: 40px;
+}
+
+.modal-subtitle {
+    font-size: 35px;
+}
+
+.modal-genre {
+    font-size: 35px;
+}
+
+footer {
+    background: var(--footer-bg);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+}
+
+.footer-logo {
+    font-size: 40px;
+}
+
+.footer-text {
+    font-size: 20px;
+}
+
+.footer-nav {
+    font-size: 35px;
+}
+
+.footer-list-text {
+    font-size: 20px;
+}
+
+.footer-contact {
+    font-size: 35px;
+}
+
+.footer-contact-link {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    background: var(--modal-bg);
+    border: 1px solid var(--span-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-contact-list {
+    display: flex;
+    gap: 20px;
 }
